@@ -16,4 +16,4 @@ Add methods to add protocols from outside the module
 
 ### Contributions
 
-The idea to do this came from when [Camilo Tapia](https://github.com/camme) and Chris Hedgate discussed how to create an application for a client.
+The idea to do this came from when [Camilo Tapia](https://github.com/camme) and [Chris Hedgate](https://github.com/chrishedgate) discussed how to create an application for a client.
