@@ -10,8 +10,8 @@ Its currently in a very alpha stage and serves more as a test and proof of conce
 
 ### Next steps
 
-Add methods to add balancing functions from outside the module
-Add methods to add protocols from outside the module
+- Add methods to add balancing functions from outside the module
+- Add methods to add protocols from outside the module
 
 
 ### Contributions
