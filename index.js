@@ -1,2 +1,2 @@
-var messaging = require('./lib/index');
-module.exports = messaging;
+var talk = require('./lib/index');
+module.exports = talk;
