@@ -6,6 +6,7 @@ Abstract the way your node applications talk to each other so you can implement 
 - Choose which protocol is the best for your application, even late in a project
 - Handle basic balancing if needed
 
+### Dont use it just yet
 Its currently in a very alpha stage and serves more as a test and proof of concept than anything else. But it will evolve into a finished module.
 
 ### Next steps
