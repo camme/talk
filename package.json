@@ -1,6 +1,6 @@
 {
   "name": "talk",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Abstract the way your node appications talk to each other so you can implement what ever protocol you want (http, sockets etc) with the same interface",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,11 @@
     "protocol",
     "abstraction"
   ],
-  "author": "Camilo Tapia <camilo.tapia@gmail.com> (http://www.1001.io/)",
+  "author": {
+    "name": "Camilo Tapia",
+    "email": "camilo.tapia@gmail.com",
+    "url": "http://www.1001.io/"
+  },
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.0",
@@ -26,5 +30,27 @@
     "redis": "^0.12.1",
     "request": "^2.61.0",
     "should": "^7.0.1"
-  }
+  },
+  "gitHead": "d29369cef0ba57c271538a76af5cf69596945f2a",
+  "_id": "talk@0.2.1",
+  "_shasum": "a58b3def19f94a534f6d4158d0c2e16afcc7e42d",
+  "_from": "talk@>=0.2.1 <0.3.0",
+  "_npmVersion": "2.14.2",
+  "_nodeVersion": "4.0.0",
+  "_npmUser": {
+    "name": "camilo.tapia",
+    "email": "camilo.tapia@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "camilo.tapia",
+      "email": "camilo.tapia@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "a58b3def19f94a534f6d4158d0c2e16afcc7e42d",
+    "tarball": "http://registry.npmjs.org/talk/-/talk-0.2.1.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/talk/-/talk-0.2.1.tgz"
 }
