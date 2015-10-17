@@ -1,6 +1,6 @@
 {
   "name": "talk",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "Abstract the way your node appications talk to each other so you can implement what ever protocol you want (http, sockets etc) with the same interface",
   "main": "index.js",
   "scripts": {
