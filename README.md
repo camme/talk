@@ -1,6 +1,47 @@
 # talk
 
-Abstract the way your node applications talk to each other so you can implement what ever protocol you want (http, sockets etc) with the same interface.
+Talk is a node module to help you abtract the way your node applications talk to each. You dont need to decide if you want to use http/REST or sockets or websockets or something else from **day one**.
+Often, when creating a complex server/service setup, you might now know exatcly how the end result will be. Optimizing a solution is therefore quite hard. So if you choose the way your services talk to eachother too early, you might need to change quite a lot at the end.
+
+Talk gives you an easy interface to both setup and communicate with your services. It is up to you later so change, add or optimize the protocol it uses. 
+
+### Basics
+At its heart, it exposes two communication patterns:
+
+- Request / Response
+- Publisher / Subscriber
+
+And the current version supports both HTTP and websockets (socketio).
+
+That means that you can create a server and talk to it and use either protocol without it affecting how you write your application. 
+
+### Simple example:
+
+We create a server:
+
+    var server = talk.reqrep.serve({port: 11177, protocol: 'socketio'});
+
+    server.on('hej', function(payload, meta) {
+        return Promise.resolve({thanks: true});
+    });
+
+    server.start()
+        .then(function() {
+            console.log('The server is listening');
+        });
+
+And a client:
+
+    var picker = function (name) { 
+        return Promise.resolve({ host: 'localhost', port: 11177 });
+    }
+
+    var client = talk.reqrep.client({ pick: picker }, { protocol: 'socketio' });
+
+    client.send('foo', 'hej', {foo: 'bar'})
+        .then(function(result) {
+            console.log('Got this from the server: ', result);
+        });
 
 - Optimize which protocol you use later in the project
 - Choose which protocol is the best for your application, even late in a project

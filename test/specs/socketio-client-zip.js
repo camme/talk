@@ -1,20 +1,9 @@
 var talk = require('../../');
 var should = require('should');
 
-
-
-describe('Zip', function() {
+describe('The socketio client with gzip', function() {
 
     var server = talk.reqrep.serve({port: 11177, protocol: 'socketio', gzip: true});
-
-    var clientZip = talk.reqrep.client({
-        pick: function (name) {
-            return Promise.resolve({ host: 'localhost', port: 11177 });
-        }
-    }, {
-        protocol: 'socketio',
-        gzip: true
-    });
 
     var client = talk.reqrep.client({
         pick: function (name) {
@@ -22,9 +11,8 @@ describe('Zip', function() {
         }
     }, {
         protocol: 'socketio',
+        gzip: true
     });
-
-
 
     beforeEach(function(done) {
         server.start()
@@ -39,7 +27,7 @@ describe('Zip', function() {
             .then(function() { done() });
     });
 
-    it('A client should be able to send gzipped content to the server with sockerio', function(done) {
+    it('should be able to send gziped content to a server', function(done) {
 
         server.on('hej', function(payload, meta) {
             payload.should.have.property('foo', 'bar');
@@ -48,25 +36,25 @@ describe('Zip', function() {
             return Promise.resolve({ok: true});
         });
 
-        clientZip.send('foo', 'hej', {foo: 'bar'})
-            .then(function(result) {
-            });
+        client.send('foo', 'hej', {foo: 'bar'});
 
     });
 
-    it('A client should be able to send gzipped content to the server with sockerio', function(done) {
+    it('should be able to send gziped content to a server without a payload', function(done) {
 
         server.on('hej', function(payload, meta) {
-            payload.should.have.property('foo', 'bar');
+            should.not.exist(payload);
+
+            // An empty payload will not be zipped
             meta.should.have.property('gzip', false);
             done();
             return Promise.resolve({ok: true});
         });
 
-        client.send('foo', 'hej', {foo: 'bar'})
-            .then(function(result) {
-            });
+        client.send('foo', 'hej');
 
     });
+
+
 
 });
