@@ -43,12 +43,8 @@ And a client:
             console.log('Got this from the server: ', result);
         });
 
-- Optimize which protocol you use later in the project
-- Choose which protocol is the best for your application, even late in a project
-- Handle basic balancing if needed
-
-### Dont use it just yet
-Its currently in a very alpha stage and serves more as a test and proof of concept than anything else. But it will evolve into a finished module.
+### Current state
+Although its in use alread, its still considered under development, which means that things might change a lot. If you want to use it anyway, just remember that future releases might contain breaking changes.
 
 ### Next steps
 
