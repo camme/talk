@@ -32,22 +32,20 @@ We create a server:
 
 And a client:
 
-    var picker = function (name) { 
-        return Promise.resolve({ host: 'localhost', port: 11177 });
-    }
+    var client = talk.reqrep.client({ protocol: 'socketio' });
 
-    var client = talk.reqrep.client({ pick: picker }, { protocol: 'socketio' });
-
-    client.send('foo', 'hej', {foo: 'bar'})
+    client.send('localhost:11177', 'hej', {foo: 'bar'})
         .then(function(result) {
             console.log('Got this from the server: ', result);
         });
 
 ### Current state
-Although its in use alread, its still considered under development, which means that things might change a lot. If you want to use it anyway, just remember that future releases might contain breaking changes.
+Although its in use already, its still considered under development, which means that things might change a lot. If you want to use it anyway, just remember that future releases might contain breaking changes.
 
 ### Next steps
 
+- Add pub/sub (yeah I know, it should be there)
+- Add signing of payload (jwt)
 - Add methods to add balancing functions from outside the module
 - Add methods to add protocols from outside the module
 

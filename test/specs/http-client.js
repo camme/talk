@@ -1,14 +1,10 @@
 var talk = require('../../');
 var should = require('should');
 
-describe('The socketio client with gzip', function() {
+describe('The http client', function() {
 
-    var server = talk.reqrep.serve({port: 11177, protocol: 'socketio', gzip: true});
-
-    var client = talk.reqrep.client({
-        protocol: 'socketio',
-        gzip: true
-    });
+    var server = talk.reqrep.serve({ port: 11177 });
+    var client = talk.reqrep.client({ protocol: 'http' });
 
     beforeEach(function(done) {
         server.start()
@@ -23,11 +19,10 @@ describe('The socketio client with gzip', function() {
             .then(function() { done() });
     });
 
-    it('should be able to send gziped content to a server', function(done) {
+    it('should be able to send content to a server', function(done) {
 
         server.on('hej', function(payload, meta) {
             payload.should.have.property('foo', 'bar');
-            meta.should.have.property('gzip', true);
             done();
             return Promise.resolve({ok: true});
         });
@@ -36,13 +31,9 @@ describe('The socketio client with gzip', function() {
 
     });
 
-    it('should be able to send gziped content to a server without a payload', function(done) {
+    it('should be able to send a request to a server without a payload', function(done) {
 
         server.on('hej', function(payload, meta) {
-            should.not.exist(payload);
-
-            // An empty payload will not be zipped
-            meta.should.have.property('gzip', false);
             done();
             return Promise.resolve({ok: true});
         });
