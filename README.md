@@ -75,6 +75,7 @@ The subscriber:
 
 The publisher:
 
+    var pubsub = talk.pubsub({ host: '127.0.0.1', port: 6379 });
     pubsub.emit('hej', {foo: 'bar'});
 
 ### Next steps
